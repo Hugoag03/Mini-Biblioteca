@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Libros de la Editorial</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Libros de la Editorial</h2>
+    <p>ID de la editorial: <span th:text="${editorial.id}"></span></p>
+    <p>Nombre de la editorial: <span th:text="${editorial.nombre}"></span></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="libro : ${libro}">
+                <td th:text="${libro.id}"></td>
+                <td th:text="${libro.titulo}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/editoriales/listar}" class="btn btn-secondary">Volver</a>
+</div>
+</body>
+</html>
